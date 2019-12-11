@@ -3,21 +3,18 @@ Processes a list of scores to provide latest, personal best, tests of most recen
 =end
 
 class HighScores
+  attr_reader :scores
 
   def initialize(scores)
     @scores = scores
   end
 
-  def scores
-    @scores
-  end
-
   def latest
-    @scores.last
+    scores.last
   end
 
   def personal_best
-    @scores.max
+    scores.max
   end
 
   def latest_is_personal_best?
@@ -25,7 +22,7 @@ class HighScores
   end
 
   def personal_top_three
-    @scores.max(3)
+    scores.max(3)
   end
 
 end
