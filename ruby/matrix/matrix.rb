@@ -7,7 +7,7 @@ class Matrix
   attr_reader :rows, :columns
 
   def initialize(input)
-    @rows = input.split("\n").map{|x| x.split.map(&:to_i)}
+    @rows = input.lines(chomp:true).map{|x| x.split.map(&:to_i)}
     @columns = rows.transpose
   end
 
