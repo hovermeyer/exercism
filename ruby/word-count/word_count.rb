@@ -1,14 +1,8 @@
-# Phrase takes a provided phrase and returns the count of each word
+# Takes a provided phrase and returns the count of each word
 class Phrase
-  def initialize(phrase)
-    @words = phrase.scan(/\b\w+'\w+|\b\w+/).map(&:downcase)
-  end
+  attr_reader :word_count
 
-  def word_count
-    counts = Hash.new(0)
-    @words.each{|word|
-      counts[word] += 1
-    }
-    counts
+  def initialize(phrase)
+    @word_count = phrase.downcase.scan(/\b[\w']+\b/).tally
   end
 end
